@@ -55,11 +55,15 @@ public class Companie {
         }
     }
 
-    public void addLocatie (String locatie) {
-        this.locatii.add(locatie);
+    protected void addLocatie (String locatie) {
+        locatii.add(locatie);
     }
 
+    public ArrayList<String> getLocatii() {
+        return locatii;
+    }
     public void scadereVenituri(Integer venituri) {
         this.veniturileCampaniei -= venituri;
     }
+
 }

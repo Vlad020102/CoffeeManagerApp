@@ -10,9 +10,8 @@ public class Barista extends Angajat {
     private Comanda comandaActuala;
     private Integer nrComenziFinalizate = 0;
     private Integer venituriZilnice = 0;
-    public Barista(String nume, String prenume, String email, String nrTelefon, TipPost tipPost, String adresaLocDeMunca, String intervalOrar, Integer salariu, Integer tipsPrimite, Float fonduri) {
+    public Barista(String nume, String prenume, String email, String nrTelefon, TipPost tipPost, String adresaLocDeMunca, String intervalOrar, Integer salariu, Float fonduri) {
         super(nume, prenume, email, nrTelefon, salariu, tipPost, adresaLocDeMunca, intervalOrar, fonduri);
-        this.tipsPrimite = tipsPrimite;
     }
 
     public void setComandaActuala(Comanda comanda){
@@ -51,9 +50,4 @@ public class Barista extends Angajat {
             produs.setStatusProdus(StatusProdus.PREPARAT);
         }
     }
-
-
-
-
-
 }
