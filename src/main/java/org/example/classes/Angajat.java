@@ -9,12 +9,26 @@ public class Angajat extends Persoana {
     private String adresaLocDeMunca;
     private String intervalOrar;
 
-    public Angajat(String nume, String prenume, String email, String nrTelefon, Integer salariu, TipPost tipPost, String adresaLocDeMunca, String intervalOrar) {
-        super(nume, prenume, email, nrTelefon);
+    public Angajat(String nume, String prenume, String email, String nrTelefon, Integer salariu, TipPost tipPost, String adresaLocDeMunca, String intervalOrar, Float fonduri) {
+        super(nume, prenume, email, nrTelefon, fonduri);
         this.tipPost = tipPost;
         this.adresaLocDeMunca = adresaLocDeMunca;
         this.intervalOrar = intervalOrar;
     }
 
+    public Integer getSalariu() {
+        return salariu;
+    }
 
+    public TipPost getTipPost() {
+        return tipPost;
+    }
+
+    public String getAdresaLocDeMunca() {
+        return adresaLocDeMunca;
+    }
+
+    public String getIntervalOrar() {
+        return intervalOrar;
+    }
 }

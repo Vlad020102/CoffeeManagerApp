@@ -4,22 +4,23 @@ import org.example.interfaces.Persoana;
 import java.util.ArrayList;
 
 public class Client extends Persoana {
-    private Integer fonduri;
 
     private ArrayList<Comanda> comenzi = new ArrayList<Comanda>();
 
     private Comanda comandaActuala;
 
-    public Client(String nume, String prenume, String numarTelefon, String email, Integer fonduri) {
-        super(nume, prenume, numarTelefon, email);
-        this.fonduri = fonduri;
+    public Client(String nume, String prenume, String numarTelefon, String email, Float fonduri) {
+        super(nume, prenume, numarTelefon, email, fonduri);
     }
 
     String plateste(Boolean isTipping, Barista barista){
-        if(this.fonduri >= comandaActuala.getPretTotal()){
-            this.fonduri -= comandaActuala.getPretTotal();
+        if(this.getFonduri() >= comandaActuala.getPretTotal()){
+            this.scadeFonduri(comandaActuala.getPretTotal() * 1.f);
             if(isTipping){
-                this.fonduri -= 10;
+                // ATENTIE!
+                // 10% din pretul total al comenzii
+                this.scadeFonduri(0.1f * comandaActuala.getPretTotal());
+                barista.adaugaFonduri(0.1f * comandaActuala.getPretTotal());
             }
             comenzi.add(comandaActuala);
             barista.setComandaActuala(comandaActuala);
@@ -42,6 +43,6 @@ public class Client extends Persoana {
 
     void giveTip(Integer tip, Barista barista){
         barista.setTipsPrimite(tip);
-        this.fonduri -= tip;
+        this.scadeFonduri(tip * 1.f);
     }
 }

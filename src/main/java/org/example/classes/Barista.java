@@ -1,6 +1,7 @@
 package org.example.classes;
 
 import org.example.classes.Angajat;
+import org.example.enums.StatusProdus;
 import org.example.enums.TipPost;
 
 public class Barista extends Angajat {
@@ -8,9 +9,9 @@ public class Barista extends Angajat {
 
     private Comanda comandaActuala;
     private Integer nrComenziFinalizate = 0;
-
-    public Barista(String nume, String prenume, String email, String nrTelefon, TipPost tipPost, String adresaLocDeMunca, String intervalOrar, Integer salariu, Integer tipsPrimite) {
-        super(nume, prenume, email, nrTelefon, salariu, tipPost, adresaLocDeMunca, intervalOrar);
+    private Integer venituriZilnice = 0;
+    public Barista(String nume, String prenume, String email, String nrTelefon, TipPost tipPost, String adresaLocDeMunca, String intervalOrar, Integer salariu, Integer tipsPrimite, Float fonduri) {
+        super(nume, prenume, email, nrTelefon, salariu, tipPost, adresaLocDeMunca, intervalOrar, fonduri);
         this.tipsPrimite = tipsPrimite;
     }
 
@@ -21,4 +22,38 @@ public class Barista extends Angajat {
     public void setTipsPrimite(Integer tipsPrimite) {
         this.tipsPrimite += tipsPrimite;
     }
+
+    public Integer getVenituriZilnice() {
+        return venituriZilnice;
+    }
+
+    public Integer getNrComenziFinalizate() {
+        return nrComenziFinalizate;
+    }
+    public void servireComanda() {
+        for (Produs produs : comandaActuala.getProduse()) {
+            produs.setStatusProdus(StatusProdus.SERVIT);
+            this.venituriZilnice += produs.getPret();
+        }
+        this.comandaActuala = null;
+        this.nrComenziFinalizate++;
+    }
+    public void preparaProduse() {
+        for (Produs produs : comandaActuala.getProduse()) {
+            // delay for 1000 ms
+            System.out.println(produs.getNume() + " este in curs de preparare...");
+            try {
+                // simulate the work of preparing the product
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            produs.setStatusProdus(StatusProdus.PREPARAT);
+        }
+    }
+
+
+
+
+
 }
