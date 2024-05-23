@@ -3,8 +3,6 @@ package org.example.classes;
 import org.example.enums.StatusProdus;
 import org.example.enums.TipProdus;
 
-import java.util.ArrayList;
-
 public class Produs {
 
     private String nume;

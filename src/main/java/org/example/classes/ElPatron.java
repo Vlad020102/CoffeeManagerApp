@@ -2,10 +2,10 @@ package org.example.classes;
 
 import org.example.interfaces.Persoana;
 
-import java.util.ArrayList;
-
 public class ElPatron extends Persoana {
+
     private Companie companie;
+
     public ElPatron(String nume, String prenume, String numarTelefon, String email, Float fonduri) {
         super(nume, prenume, numarTelefon, email, fonduri);
     }

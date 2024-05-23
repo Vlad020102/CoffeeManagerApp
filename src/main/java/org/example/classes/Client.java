@@ -16,7 +16,7 @@ public class Client extends Persoana {
     String plateste(Boolean isTipping, Barista barista){
         if(this.getFonduri() >= comandaActuala.getPretTotal()){
             this.scadeFonduri(comandaActuala.getPretTotal() * 1.f);
-            if(isTipping){
+            if(isTipping && this.getFonduri() >= 0.1f * comandaActuala.getPretTotal()){
                 // ATENTIE!
                 // 10% din pretul total al comenzii
                 this.scadeFonduri(0.1f * comandaActuala.getPretTotal());
@@ -42,7 +42,7 @@ public class Client extends Persoana {
     }
 
     void giveTip(Integer tip, Barista barista){
-        barista.setTipsPrimite(tip);
+        barista.setTipsPrimit(tip);
         this.scadeFonduri(tip * 1.f);
     }
 }

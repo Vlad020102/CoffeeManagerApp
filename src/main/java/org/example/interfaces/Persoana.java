@@ -8,19 +8,8 @@ public abstract class Persoana {
     private String numarTelefon;
 
     private String email;
+
     private Float fonduri;
-
-    public Float getFonduri() {
-        return fonduri;
-    }
-
-    public void adaugaFonduri(Float fonduri) {
-        this.fonduri += fonduri;
-    }
-
-    public void scadeFonduri(Float fonduri) {
-        this.fonduri -= fonduri;
-    }
 
     public Persoana(String nume, String prenume, String numarTelefon, String email, Float fonduri) {
         this.nume = nume;
@@ -29,6 +18,19 @@ public abstract class Persoana {
         this.email = email;
         this.fonduri = fonduri;
     }
+    
+    public void adaugaFonduri(Float fonduri) {
+        this.fonduri += fonduri;
+    }
+    
+    public void scadeFonduri(Float fonduri) {
+        this.fonduri -= fonduri;
+    }
+
+    public Float getFonduri() {
+        return fonduri;
+    }
+
     public String getNume() {
         return nume;
     }

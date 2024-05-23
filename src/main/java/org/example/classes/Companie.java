@@ -5,11 +5,17 @@ import org.example.enums.TipPost;
 import java.util.ArrayList;
 
 public class Companie {
+
     private String nume;
+
     private Integer veniturileCampaniei;
+
     private ArrayList<Angajat> angajati = new ArrayList<>();
+
     private ElPatron patron;
+
     private ArrayList<String> locatii;
+
     public Companie(String nume, Integer veniturileCampaniei, ElPatron patron) {
         this.nume = nume;
         this.veniturileCampaniei = veniturileCampaniei;
@@ -24,6 +30,7 @@ public class Companie {
         this.angajati.remove(angajat);
         angajat = null;
     }
+
     public ElPatron getPatron() {
         return patron;
     }
@@ -31,8 +38,13 @@ public class Companie {
     public ArrayList<Angajat> getAngajati() {
         return angajati;
     }
+
     public Integer getVeniturileCampaniei() {
         return veniturileCampaniei;
+    }
+
+    public ArrayList<String> getLocatii() {
+        return locatii;
     }
 
     public String getNume() {
@@ -42,7 +54,8 @@ public class Companie {
     public void setNume(String nume) {
         this.nume = nume;
     }
-    public void daily_recap (){
+    
+    public void dailyRecap (){
         System.out.println("Recapitulare zilnica pentru campania " + this.nume);
         System.out.println("Venituri: " + this.veniturileCampaniei);
         System.out.println("Angajati: ");
@@ -59,9 +72,6 @@ public class Companie {
         locatii.add(locatie);
     }
 
-    public ArrayList<String> getLocatii() {
-        return locatii;
-    }
     public void scadereVenituri(Integer venituri) {
         this.veniturileCampaniei -= venituri;
     }

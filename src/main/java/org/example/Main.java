@@ -1,12 +1,9 @@
 package org.example;
 
-import org.example.classes.Angajat;
 import org.example.classes.Barista;
 import org.example.classes.Companie;
 import org.example.classes.ElPatron;
 import org.example.enums.TipPost;
-
-import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) {
@@ -16,8 +13,9 @@ public class Main {
         Companie companie = new Companie("CoisCoffee", 1000, patron);
 
         patron.infiintareCompanie(companie);
-        for (int i = 0; i < 10; i++) {
-            patron.inchirereLocatie("Strada" + i + ", Oras" + i + ", Judet" + i + ", Tara" + i);
+        for (int i = 0; i < 3; i++) {
+            String adresa = "Strada" + i + ", Oras" + i + ", Judet" + i;
+            patron.inchirereLocatie(adresa);
         }
 
         for (int i = 0; i < 10; i++) {

@@ -1,15 +1,18 @@
 package org.example.classes;
 
-import org.example.classes.Angajat;
 import org.example.enums.StatusProdus;
 import org.example.enums.TipPost;
 
 public class Barista extends Angajat {
-    private Integer tipsPrimite = 0;
+
+    private Integer tipsPrimit = 0;
 
     private Comanda comandaActuala;
+
     private Integer nrComenziFinalizate = 0;
+
     private Integer venituriZilnice = 0;
+
     public Barista(String nume, String prenume, String email, String nrTelefon, TipPost tipPost, String adresaLocDeMunca, String intervalOrar, Integer salariu, Float fonduri) {
         super(nume, prenume, email, nrTelefon, salariu, tipPost, adresaLocDeMunca, intervalOrar, fonduri);
     }
@@ -18,8 +21,8 @@ public class Barista extends Angajat {
         this.comandaActuala = comanda;
     }
 
-    public void setTipsPrimite(Integer tipsPrimite) {
-        this.tipsPrimite += tipsPrimite;
+    public void setTipsPrimit(Integer tipsPrimit) {
+        this.tipsPrimit += tipsPrimit;
     }
 
     public Integer getVenituriZilnice() {
@@ -29,6 +32,7 @@ public class Barista extends Angajat {
     public Integer getNrComenziFinalizate() {
         return nrComenziFinalizate;
     }
+
     public void servireComanda() {
         for (Produs produs : comandaActuala.getProduse()) {
             produs.setStatusProdus(StatusProdus.SERVIT);
@@ -37,6 +41,7 @@ public class Barista extends Angajat {
         this.comandaActuala = null;
         this.nrComenziFinalizate++;
     }
+    
     public void preparaProduse() {
         for (Produs produs : comandaActuala.getProduse()) {
             // delay for 1000 ms

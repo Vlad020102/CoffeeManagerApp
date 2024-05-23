@@ -5,7 +5,9 @@ import org.example.enums.StatusProdus;
 import java.util.ArrayList;
 
 public class Comanda {
+
     private Integer pretTotal;
+
     private ArrayList<Produs> produse = new ArrayList<Produs>();
 
     void addProdus(Produs produs) {
@@ -13,6 +15,7 @@ public class Comanda {
         produse.add(produs);
         this.pretTotal += produs.getPret();
     }
+    
     void removeProdus(Produs produs) {
         produse.remove(produs);
         this.pretTotal -= produs.getPret();
