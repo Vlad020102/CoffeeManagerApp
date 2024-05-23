@@ -13,7 +13,7 @@ public class Main {
         Companie companie = new Companie("CoisCoffee", 1000, patron);
 
         patron.infiintareCompanie(companie);
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < 10; i++) {
             String adresa = "Strada" + i + ", Oras" + i + ", Judet" + i;
             patron.inchirereLocatie(adresa);
         }

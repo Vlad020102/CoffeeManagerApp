@@ -14,7 +14,7 @@ public class Companie {
 
     private ElPatron patron;
 
-    private ArrayList<String> locatii;
+    private ArrayList<String> locatii = new ArrayList<>();
 
     public Companie(String nume, Integer veniturileCampaniei, ElPatron patron) {
         this.nume = nume;
