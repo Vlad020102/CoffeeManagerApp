@@ -6,6 +6,8 @@ import org.example.enums.TipProdus;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 
+import java.util.ArrayList;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class Test {
@@ -35,7 +37,7 @@ class Test {
     void PlatesteAndShouldReturnRunTimeExceptionFonduriInsuficiente() {
         underTest = new Client("Client", "Client", "0710101010", "client@gmail.com", 10.f);
 
-        Produs cafea = new Produs("Cafea", TipProdus.CAFEA, 5);
+        Produs cafea = new Produs("Cafea", TipProdus.CAFEA, 2);
         Produs croissant = new Produs("Croissant", TipProdus.CROISSANT, 6);
 
         underTest.comandaProdus(cafea);
@@ -57,7 +59,7 @@ class Test {
         underTest.plateste(true, mockedBarista);
 
         assertEquals(2.f, mockedBarista.getTipsPrimit());
-        assertEquals(12.f, mockedBarista.getFonduri());
+        assertEquals(13.f, mockedBarista.getFonduri());
     }
 
     @org.junit.jupiter.api.Test
@@ -72,9 +74,9 @@ class Test {
 
         underTest.plateste(false, mockedBarista);
 
-        mockedBarista.preparaProduse();
+        ArrayList<Produs> produse = mockedBarista.preparaProduse();
 
-        for (Produs produs : mockedComanda.getProduse()) {
+        for (Produs produs : produse) {
             assertEquals(StatusProdus.PREPARAT, produs.getStatusProdus());
         }
     }

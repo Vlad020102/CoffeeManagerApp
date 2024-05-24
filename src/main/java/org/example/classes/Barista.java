@@ -3,6 +3,8 @@ package org.example.classes;
 import org.example.enums.StatusProdus;
 import org.example.enums.TipPost;
 
+import java.util.ArrayList;
+
 public class Barista extends Angajat {
 
     private Float tipsPrimit = 0.f;
@@ -47,7 +49,7 @@ public class Barista extends Angajat {
         this.nrComenziFinalizate++;
     }
     
-    public void preparaProduse() {
+    public ArrayList<Produs> preparaProduse() {
         for (Produs produs : comandaActuala.getProduse()) {
             // delay for 1000 ms
             System.out.println(produs.getNume() + " este in curs de preparare...");
@@ -59,5 +61,7 @@ public class Barista extends Angajat {
             }
             produs.setStatusProdus(StatusProdus.PREPARAT);
         }
+
+        return this.comandaActuala.getProduse();
     }
 }
