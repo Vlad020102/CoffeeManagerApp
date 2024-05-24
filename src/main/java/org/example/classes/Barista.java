@@ -5,13 +5,14 @@ import org.example.enums.TipPost;
 
 public class Barista extends Angajat {
 
-    private Integer tipsPrimit = 0;
+    private Float tipsPrimit = 0.f;
 
     private Comanda comandaActuala;
 
     private Integer nrComenziFinalizate = 0;
 
     private Integer venituriZilnice = 0;
+
 
     public Barista(String nume, String prenume, String email, String nrTelefon, TipPost tipPost, String adresaLocDeMunca, String intervalOrar, Integer salariu, Float fonduri) {
         super(nume, prenume, email, nrTelefon, salariu, tipPost, adresaLocDeMunca, intervalOrar, fonduri);
@@ -21,8 +22,12 @@ public class Barista extends Angajat {
         this.comandaActuala = comanda;
     }
 
-    public void setTipsPrimit(Integer tipsPrimit) {
+    public void addTipsPrimit(Float tipsPrimit) {
         this.tipsPrimit += tipsPrimit;
+    }
+
+    public Float getTipsPrimit() {
+        return tipsPrimit;
     }
 
     public Integer getVenituriZilnice() {

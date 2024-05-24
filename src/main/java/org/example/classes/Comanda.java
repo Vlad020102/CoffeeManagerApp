@@ -6,8 +6,7 @@ import java.util.ArrayList;
 
 public class Comanda {
 
-    private Integer pretTotal;
-
+    private Integer pretTotal = 0;
     private ArrayList<Produs> produse = new ArrayList<Produs>();
 
     void addProdus(Produs produs) {

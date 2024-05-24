@@ -76,4 +76,8 @@ public class Companie {
         this.veniturileCampaniei -= venituri;
     }
 
+    public void adaugareVenituri(Integer venituri) {
+        this.veniturileCampaniei += venituri;
+    }
+
 }

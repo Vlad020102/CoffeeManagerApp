@@ -20,6 +20,7 @@ public class ElPatron extends Persoana {
 
     public void adaugaAngajat(Angajat angajat) {
         this.companie.add(angajat);
+        angajat.setAngajator(companie);
     }
 
     public void concendiereAngajat(Angajat angajat) {
@@ -33,4 +34,7 @@ public class ElPatron extends Persoana {
         }
     }
 
+    public Companie getCompanie() {
+        return companie;
+    }
 }

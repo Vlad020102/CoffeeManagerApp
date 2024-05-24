@@ -13,6 +13,8 @@ public abstract class Angajat extends Persoana {
 
     private String intervalOrar;
 
+    private Companie angajator;
+
     public Angajat(String nume, String prenume, String email, String nrTelefon, Integer salariu, TipPost tipPost, String adresaLocDeMunca, String intervalOrar, Float fonduri) {
         super(nume, prenume, email, nrTelefon, fonduri);
         this.tipPost = tipPost;
@@ -50,5 +52,13 @@ public abstract class Angajat extends Persoana {
 
     public void setIntervalOrar(String intervalOrar) {
         this.intervalOrar = intervalOrar;
+    }
+
+    public void setAngajator(Companie angajator) {
+        this.angajator = angajator;
+    }
+
+    public Companie getAngajator() {
+        return angajator;
     }
 }

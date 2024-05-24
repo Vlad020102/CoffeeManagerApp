@@ -19,12 +19,13 @@ public class Client extends Persoana {
             if(isTipping && this.getFonduri() >= 0.1f * comandaActuala.getPretTotal()){
                 // ATENTIE!
                 // 10% din pretul total al comenzii
-                this.scadeFonduri(0.1f * comandaActuala.getPretTotal());
-                barista.adaugaFonduri(0.1f * comandaActuala.getPretTotal());
+               this.giveTip(0.1f * comandaActuala.getPretTotal(), barista);
             }
             comenzi.add(comandaActuala);
             barista.setComandaActuala(comandaActuala);
             Integer pretTotal = comandaActuala.getPretTotal();
+            Companie companie = barista.getAngajator();
+            companie.adaugareVenituri(pretTotal);
             comandaActuala = null;
             System.out.println("Comanda platita cu succes!");
 
@@ -41,8 +42,9 @@ public class Client extends Persoana {
         comandaActuala.addProdus(produs);
     }
 
-    void giveTip(Integer tip, Barista barista){
-        barista.setTipsPrimit(tip);
+    void giveTip(Float tip, Barista barista){
+        barista.addTipsPrimit(tip);
+        barista.adaugaFonduri(tip);
         this.scadeFonduri(tip * 1.f);
     }
 }

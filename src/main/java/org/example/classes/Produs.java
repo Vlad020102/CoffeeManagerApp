@@ -10,11 +10,11 @@ public class Produs {
     private Integer pret;
     private StatusProdus statusProdus;
 
-    public Produs(String nume, TipProdus tipProdus, Integer pret, StatusProdus statusProdus) {
+    public Produs(String nume, TipProdus tipProdus, Integer pret) {
         this.nume = nume;
         this.tipProdus = tipProdus;
         this.pret = pret;
-        this.statusProdus = statusProdus;
+        this.statusProdus = StatusProdus.PENDING;
     }
 
     public String getNume() {
